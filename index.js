@@ -7,7 +7,7 @@ const converter = require('./utils/24hrConverter')
 const PORT = process.env.PORT || 3000
 
 
-app.get('/getPrayerTimes', async (req, res) => {
+app.get('/', async (req, res) => {
 
     //scrape times
 
@@ -42,5 +42,5 @@ app.get('/getPrayerTimes', async (req, res) => {
 
 })
 
-app.listen(PORT, () => console.log(`server stared on port ${PORT}`))
+app.listen(PORT, () => console.log(`server started on port ${PORT}`))
 
