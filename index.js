@@ -1,10 +1,17 @@
 const express = require('express')
 const app = express()
-
+const path = require('path')
 const scraper = require('./scraper')
 const converter = require('./utils/24hrConverter')
+const getDate = require('./utils/getDate')
 
 const PORT = process.env.PORT || 3000
+
+// app.use(express.static(path.join(__dirname, 'pages')))
+
+// app.get('/', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'pages/index.html'))
+// })
 
 
 app.get('/', async (req, res) => {
@@ -15,12 +22,16 @@ app.get('/', async (req, res) => {
 
     const [fajr, sunrise, ...othertimes] = times
     const [fajrJamaa, ...otherJTimes] = jTimes
-    //convert times to 24hrs
+
+    //convert necessary times to 24hrs
     const convertedTimes = othertimes.map(time => converter(time))
     const convertedJTimes = otherJTimes.map(time => converter(time))
 
     const [dhuhr, asr, maghrib, isha] = convertedTimes
     const [dhuhrJamaa, asrJamaa, maghribJamaa, ishaJamaa] = convertedJTimes
+
+    const date = getDate()
+    console.log(date)
 
     const prayerTimes = {
         fajr,
@@ -38,7 +49,7 @@ app.get('/', async (req, res) => {
         ishaJamaa
     }
 
-    res.json({prayerTimes, jamaaTimes})
+    res.json({date, prayerTimes, jamaaTimes})
 
 })
 

@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ebecf0;
+}
+
+h1,
+h3 {
+  text-align: center;
+  color: #444;
+  font-family: 'Futura', 'Segoe UI', sans-serif;
+}
+
+#clock {
+  padding-bottom: 1.5rem;
+  letter-spacing: 0.25rem;
+}
+
+table {
+  border: 3px solid black;
+  border-radius: 10px;
+  border-spacing: 0;
+  box-shadow: 7px 7px 15px rgba(55, 84, 170, 0.15),
+    -7px -7px 20px rgba(255, 255, 255, 1), 0px 0px 4px rgba(255, 255, 255, 0.2) !important;
+  margin: 3em auto;
+}
+th {
+  padding: 1rem 3rem;
+  text-align: center;
+  border-bottom: 2px solid rgb(0, 0, 0);
+  -webkit-user-select: none;
+  font-family: 'Futura', sans-serif;
+}
+td {
+  padding: 1rem 3rem;
+  text-align: center;
+  border-bottom: 2px solid rgba(163, 163, 163, 0.158);
+  -webkit-user-select: none;
+  font-family: 'Futura', sans-serif;
+}
+
+tr {
+  transition: all 0.25s ease;
+}
+tr:hover {
+  background-color: rgba(163, 163, 163, 0.158);
+  color: black;
+}
+tr:nth-of-type(1):hover {
+  background-color: var(--back-color);
+}
+th {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+tr:nth-of-type(7) > td {
+  border-bottom: none;
+}
+tr:nth-of-type(7) > td:nth-of-type(3) {
+  border-bottom-right-radius: 7px;
+}
+tr:nth-of-type(7) > td:nth-of-type(1) {
+  border-bottom-left-radius: 7px;
+}
+
+.active {
+  background-color: rgb(161, 43, 110);
+  color: white;
+}
+
+.active:hover {
+  background-color: rgb(161, 43, 110);
+  color: white;
+}
