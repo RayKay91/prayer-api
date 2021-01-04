@@ -31,7 +31,6 @@ app.get('/', async (req, res) => {
     const [dhuhrJamaa, asrJamaa, maghribJamaa, ishaJamaa] = convertedJTimes
 
     const date = getDate()
-    console.log(date)
 
     const prayerTimes = {
         fajr,
@@ -49,7 +48,7 @@ app.get('/', async (req, res) => {
         ishaJamaa
     }
 
-    res.json({date, prayerTimes, jamaaTimes})
+    res.json({prayerTimes, jamaaTimes})
 
 })
 
