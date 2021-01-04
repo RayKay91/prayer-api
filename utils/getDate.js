@@ -1,14 +1,12 @@
+const dayjs = require('dayjs')
+
 function getDate () {
-    const d = new Date();
-  
-    const options = {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    };
-    return d.toLocaleDateString('en-GB', options);
+
+  return dayjs().format('dddd, D MMM, YYYY')
+
   };
 
   module.exports = getDate
+
+  console.log(getDate())
 
