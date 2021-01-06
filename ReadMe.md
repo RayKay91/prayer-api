@@ -3,6 +3,7 @@
 This is a simple web app that scrapes some data from a website, transforms it into a more palatable manner and exposes it as a node/express API to be used.
 
 https://wiseprayertimes.herokuapp.com/
+
 API endpoint: /getPrayerTimes
 ___
 
