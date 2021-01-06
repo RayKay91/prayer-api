@@ -8,5 +8,5 @@ function getDate () {
 
   module.exports = getDate
 
-  console.log(getDate())
+
 

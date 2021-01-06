@@ -7,14 +7,14 @@ const getDate = require('./utils/getDate')
 
 const PORT = process.env.PORT || 3000
 
-// app.use(express.static(path.join(__dirname, 'pages')))
+app.use(express.static(path.join(__dirname, 'pages')))
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'pages/index.html'))
-// })
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages/index.html'))
+})
 
 
-app.get('/', async (req, res) => {
+app.get('/getPrayerTimes', async (req, res) => {
 
     //scrape times
 
