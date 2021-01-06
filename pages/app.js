@@ -1,4 +1,10 @@
 
+console.warn('@@@@@@@@@@@@@@@@@@\n\nWell well well, look who\'s prodding around down here then.\n\n@@@@@@@@@@@@@@@@@@'
+);
+
+console.log('How it\'s made:\nA simple scraping app was made using Node JS to scrape the times from the wise-web.org website homepage. They are converted into a much more palatable 24 hour format before being exposed as an API on /getPrayerTimes. These are fetched from the client side and injected into the table. Notifications are based on whether the current time matches the prayer time and they can be silenced, or turned off completely.\n\n The API endpoint is also used for the iOS and Android apps which are built using React Native and Expo (some frameworks to allow javascript code to run on the mobile devices) and they also fetch the last 5 tweets from the twitter account and link to @wisemasjid, and the apps include a link for donations.\n\n There are also desktop versions of the web app for Mac, Windows and Linux made using the Electron framework which is also used to build apps like Slack, Microsoft Teams, and Discord.')
+
+
 //Selectors
 //initial date capture
 //DOM Elements
