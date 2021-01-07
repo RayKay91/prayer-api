@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const fsPromises = require('fs').promises
 const scraper = require('./scraper')
 const converter = require('./utils/24hrConverter')
-const getDate = require('./utils/getDate')
+
 
 const PORT = process.env.PORT || 3000
 
@@ -15,6 +16,28 @@ app.get('/', (req, res) => {
 
 
 app.get('/getPrayerTimes', async (req, res) => {
+
+
+        const d = new Date()
+        const currDate = d.getDate()
+
+        const pathToTimesFile = path.join(__dirname, `logs/day ${currDate}.json`)
+        
+
+
+        const logFiles = await fsPromises.readdir(path.join(__dirname, 'logs'))
+       
+    
+        const todaysTimesExist = logFiles.includes('day ' + currDate + '.json')
+       
+
+
+        if (todaysTimesExist){
+           
+            
+           res.sendFile(pathToTimesFile)
+
+        } else {
 
     //scrape times
 
@@ -30,7 +53,7 @@ app.get('/getPrayerTimes', async (req, res) => {
     const [dhuhr, asr, maghrib, isha] = convertedTimes
     const [dhuhrJamaa, asrJamaa, maghribJamaa, ishaJamaa] = convertedJTimes
 
-    const date = getDate()
+
 
     const prayerTimes = {
         fajr,
@@ -47,8 +70,15 @@ app.get('/getPrayerTimes', async (req, res) => {
         maghribJamaa,
         ishaJamaa
     }
+    const allTimes = {prayerTimes, jamaaTimes}
 
-    res.json({prayerTimes, jamaaTimes})
+    await fsPromises.writeFile(pathToTimesFile, JSON.stringify(allTimes))
+
+    console.log('New times written to file')
+
+    res.sendFile(pathToTimesFile)
+
+}
 
 })
 
