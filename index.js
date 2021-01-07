@@ -34,7 +34,7 @@ app.get('/getPrayerTimes', async (req, res) => {
 
         if (todaysTimesExist){
            
-            
+           console.log('sending cached times') 
            res.sendFile(pathToTimesFile)
 
         } else {
