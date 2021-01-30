@@ -264,3 +264,4 @@ function notificationPermission() {
 }
 notificationPermission();
 setDate();
+currentTime()
