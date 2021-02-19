@@ -113,7 +113,10 @@ tr:nth-of-type(7) > td:nth-of-type(1) {
   width: 199px;
   margin: 0 2em;
 }
-
+.vids {
+  display: flex;
+  justify-content: center;
+}
 iframe {
-  margin: 2em auto;
+  margin: 2em;
 }
